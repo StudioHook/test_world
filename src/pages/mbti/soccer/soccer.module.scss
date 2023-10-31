@@ -1,0 +1,20 @@
+.layout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 500px;
+  margin: 0px auto;
+  margin-top: 10px;
+  flex-direction: column;
+}
+
+.soccerMain {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 29rem;
+  height: 400px;
+  margin: 0px auto;
+  flex-direction: column;
+  border: 1rem solid rgb(221, 14, 155);
+}

@@ -1,0 +1,49 @@
+{
+  "compilerOptions": {
+    "target": "es5", //"esnext",
+    "module": "esnext", //"commonjs",
+    "jsx": "preserve",
+    "lib": ["es2015", "dom", "esnext"], // "es2017"],
+    "baseUrl": ".",
+    "paths": {
+      "@/components/*": ["./src/components/*"],
+      "@/common/*": ["./src/common/*"],
+      "@/constants/*": ["./src/constants/*"],
+      "@/graphql/*": ["./src/graphql/*"],
+      "@/styles/*": ["./src/styles/*"],
+      "@/states/*": ["./src/states/*"],
+      "@/lib/*": ["./src/lib/*"],
+      "@/util/*": ["./src/util/*"],
+      "@/generated/*": ["./src/generated/*"],
+      "@/types/*": ["./src/types/*"],
+      "@/error/*": ["./src/error/*"]
+    },
+    "moduleResolution": "node",
+    "strict": true,
+    "allowJs": true,
+    "noEmit": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "isolatedModules": true,
+    "removeComments": false,
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "typeRoots": ["./@types", "./node_modules/@types"],
+    "incremental": true
+  },
+  "exclude": [
+    "dist",
+    ".next",
+    "out",
+    "next.config.js",
+    "node_modules",
+    "build",
+    "**/*.stories.tsx"
+  ],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
+}

@@ -1,1 +1,1 @@
-export { default } from './soccer';
+export { default } from './StartTest';

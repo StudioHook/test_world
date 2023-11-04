@@ -1,5 +1,5 @@
-// @import '../../sass/abstracts/mixins';
-// @import '../../main.scss';
+@import '../../styles/globals.css';
+@import '../../styles/mixins.scss';
 
 .Footer {
   box-sizing: border-box;
@@ -23,17 +23,17 @@
   }
 }
 
-// @include tablet {
-//   .Footer {
-//     &__items {
-//       width: 90%;
-//       flex-direction: column;
-//     }
-//   }
-// }
+@include tablet {
+  .Footer {
+    &__items {
+      width: 90%;
+      flex-direction: column;
+    }
+  }
+}
 
-// @include mobile {
-//   .Footer {
-//     display: none;
-//   }
-// }
+@include mobile {
+  .Footer {
+    display: none;
+  }
+}

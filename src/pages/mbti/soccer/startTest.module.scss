@@ -1,10 +1,10 @@
-// @import '../../sass/abstracts/mixins';
-// @import '../../main.scss';
+@import '../../../styles/globals.css';
+@import '../../../styles/mixins.scss';
 
 .startTest {
   border: 0.0625rem solid #f2f2f2;
   border-radius: 8px;
-  padding: 180px 40px;
+  padding: 100px 40px;
   background-color: #f2f2f2;
   width: 50%;
   height: 100%;
@@ -61,20 +61,26 @@
   }
 }
 
-// @include tablet {
-//   .startTest__input {
-//     width: 50%;
-//   }
-//   .startTest__button {
-//     width: 70%;
-//   }
-// }
+@include tablet {
+  .startTest {
+    width: 75%;
+  }
+  .startTest__input {
+    width: 50%;
+  }
+  .startTest__button {
+    width: 70%;
+  }
+}
 
-// @include mobile {
-//   .startTest__input {
-//     width: 70%;
-//   }
-//   .startTest__button {
-//     width: 90%;
-//   }
-// }
+@include mobile {
+  .startTest {
+    width: 70%;
+  }
+  .startTest__input {
+    width: 70%;
+  }
+  .startTest__button {
+    width: 90%;
+  }
+}

@@ -5,7 +5,6 @@ import Image from 'next/image';
 
 const Header = () => {
   const router = useRouter();
-
   return (
     <header className={styles.Header}>
       <section className={styles.Header__nav__logo}>

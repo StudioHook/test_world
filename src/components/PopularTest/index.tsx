@@ -6,7 +6,7 @@ import styled from 'styled-components';
 const PopularTest = () => {
   const router = useRouter();
   return (
-    <StyledComponent>
+    <StyledComponent className={styles.layout}>
       <div className={styles.title}>인기 심리테스트</div>
       <div className={styles.container}>
         <div className={styles.flexItem} onClick={() => router.push('/mbti/soccer')}>
@@ -27,6 +27,6 @@ const PopularTest = () => {
 
 export default PopularTest;
 const StyledComponent = styled.div`
-  margin: 80px auto;
-  width: 50%;
+  // margin: 80px auto;
+  // width: 50%;
 `;

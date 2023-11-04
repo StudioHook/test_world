@@ -7,8 +7,15 @@
   margin-top: 10px;
   flex-direction: column;
 }
+.button {
+  //임시 스타일링
+  width: 200px;
+  height: 30px;
+  background-color: blue;
+}
 
 .soccerMain {
+  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;

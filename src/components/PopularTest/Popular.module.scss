@@ -1,20 +1,51 @@
-.title {
-  font-size: 1.3rem;
-  font-weight: bold;
-  margin: 8px;
+@import '../../styles/globals.css';
+@import '../../styles/mixins.scss';
+.layout {
+  width: 55%;
+  margin: 70px auto;
+  .title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin: 20px 8px 12px 8px;
+  }
+  .container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .flexItem {
+    cursor: pointer;
+    width: 31%;
+    height: 140px;
+    box-sizing: border-box;
+    border: 1px solid black;
+    border-radius: 8px;
+    margin: 1% 1% 20px;
+  }
 }
 
-.container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+@include tablet {
+  .layout {
+    width: 80%;
+    .title {
+    }
+    .container {
+    }
+    .flexItem {
+      width: 45%;
+    }
+  }
 }
 
-.flexItem {
-  width: 31%;
-  height: 140px;
-  box-sizing: border-box;
-  border: 1px solid black;
-  border-radius: 8px;
-  margin: 1% 1% 20px;
+@include mobile {
+  .layout {
+    width: 90%;
+    .title {
+    }
+    .container {
+    }
+    .flexItem {
+      width: 90%;
+    }
+  }
 }

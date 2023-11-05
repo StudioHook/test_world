@@ -13,6 +13,7 @@
     "next": "12",
     "react": "^18",
     "react-dom": "^18",
+    "recoil": "^0.7.7",
     "sass": "^1.69.5",
     "sass-loader": "^13.3.2",
     "styled-components": "^6.1.0"
@@ -23,6 +24,7 @@
     "@types/react-dom": "^18",
     "eslint": "^8.52.0",
     "eslint-config-next": "^14.0.0",
-    "typescript": "^5"
+    "typescript": "^5",
+    "typescript-plugin-css-modules": "^5.0.2"
   }
 }

@@ -1,8 +1,8 @@
 @import '../../styles/globals.css';
 @import '../../styles/mixins.scss';
 .layout {
-  width: 55%;
-  margin: 70px auto;
+  margin: 0px auto;
+  width: 100%;
   .title {
     font-size: 1.3rem;
     font-weight: bold;
@@ -21,31 +21,5 @@
     border: 1px solid black;
     border-radius: 8px;
     margin: 1% 1% 20px;
-  }
-}
-
-@include tablet {
-  .layout {
-    width: 80%;
-    .title {
-    }
-    .container {
-    }
-    .flexItem {
-      width: 45%;
-    }
-  }
-}
-
-@include mobile {
-  .layout {
-    width: 90%;
-    .title {
-    }
-    .container {
-    }
-    .flexItem {
-      width: 90%;
-    }
   }
 }

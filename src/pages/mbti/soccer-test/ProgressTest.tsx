@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-// import { useLocation, useNavigate } from 'react-router-dom';
 import styles from './style.module.scss';
 import { useRouter } from 'next/router';
+import { useRecoilState, useSetRecoilState } from 'recoil';
+import { EIPoint, SNPoint, TFPoint, JPPoint } from '@/states/mbtiPoint';
 type TQuestionBox = [
   {
     title: string;
@@ -14,78 +15,76 @@ type TQuestionBox = [
 
 const ProgressTest = () => {
   const router = useRouter();
-  // const location = useLocation();
-  // const navigate = useNavigate();
-  const [user, setUser] = useState('');
   const [QuestionNumber, setQuestionNumber] = useState(0);
-  const [EIPoint, setEIPoint] = useState(0);
-  const [SNPoint, setSNPoint] = useState(0);
-  const [TFPoint, setTFPoint] = useState(0);
-  const [JPPoint, setJPPoint] = useState(0);
+
+  const [mbtiEIPoint, setEIPoint] = useRecoilState(EIPoint);
+  const [mbtiSNPoint, setSNPoint] = useRecoilState(SNPoint);
+  const [mbtiTFPoint, setTFPoint] = useRecoilState(TFPoint);
+  const [mbtiJPPoint, setJPPoint] = useRecoilState(JPPoint);
 
   const questionBox = [
     {
       title: '문제 1번',
       type: 'EI',
-      q: '코로나 끝! 학과 MT가 잡혔다. 당신은?',
-      A: '당장 가야지!! 꿈에 그리던 대학 MT!',
-      B: '사람 많은 곳은 기빨려..그냥 쉬자.',
+      q: '종료직전 결승골을 넣었다면?',
+      A: '상의 탈의 후 팬들의 환희를 즐긴다.',
+      B: '모두가 주목하는 이 순간 나는 너무 어색하고 쑥스럽다.',
     },
     {
       title: '문제 2번',
       type: 'EI',
-      q: '아는 사람 아무도 없이 홀로 교양수업을 듣게된 첫날, 당신은?',
-      A: '저 친구 마음에 드는데? 말걸어 봐야지',
-      B: '조용히 빈자리를 찾아 앉는다.',
+      q: '오늘은 자율훈련이 있는 날이다. 어떤 훈련을 할까?',
+      A: '팀원들과 함께 공돌리기를 하며 자율훈련을 즐긴다.',
+      B: '오늘만큼은 혼자있고 싶어! 개인 훈련을 즐긴다.',
     },
     {
       title: '문제 3번',
       type: 'EI',
-      q: '창밖에 날씨가 좋다. 자체휴강을 때린 당신은?',
-      A: '친구한테 전화해서 드라이브가기',
-      B: '침대에서 광합성이 최고',
+      q: '경기종료 직전! 패널티킥을 얻었다..!',
+      A: '내가 차고 싶어! 골을 넣고 경기의 MVP가 된다. ',
+      B: '너무 긴장 돼 동료선수에게 양보한다.',
     },
     {
       title: '문제 4번',
       type: 'SN',
-      q: '동기가 포스터를 보여주며 공모전에 같이 나가자고 한다. 당신은?',
-      A: '작년도 수상 사례를 찾아본다.',
-      B: '어떤 기획을 할지 아이디어를 생각해본다.',
+      q: '최근 슬럼프를 겪고 있는 당신 어떻게 해결할 것인가?',
+      A: '"나는 요즘 왜이러지? 어디서부터 잘못된 건지 되짚어본다."',
+      B: '힘들다 그냥 하자',
     },
     {
       title: '문제 5번',
       type: 'SN',
-      q: '어벤져스 영화 스파이더맨을 보고 든 생각은?',
-      A: '와 역시 마블이구나,, 액션씬 진짜 ㄷㄷ이다.',
-      B: '아니 스파이더맨 할라면 고소공포증 없어야되네..ㅠ',
+      q: '최근 한 달간 벤치신세를 겪고 있는 당신',
+      A: '감독님은 무슨 생각이실까? 당장 감독님을 찾아간다',
+      B: '감독님이 나에게 화나신게 있나? 혼자 고뇌에 빠진다.',
     },
     {
       title: '문제 6번',
       type: 'SN',
-      q: '왠지 기분이 좋아서 오랜만에 복권을 구입했다. 당신은?',
-      A: '일단 주머니에 넣어두고 주말에 맞춰본다.',
-      B: '아 1등되면 어떡하지.. 자퇴해야되나.. 그래도 학교는 졸업해야되는데..',
+      q: '최근 패배한 팀과 리턴 매치가 성사됐다.',
+      A: '패배의 요인을 분석하여 경기를 준비한다',
+      B: '새로운 전술을 준비하여 경기에 임한다',
     },
     {
       title: '문제 7번',
       type: 'TF',
-      q: '별로 안친한 동기가 감기 걸렸다고 칭얼거린다면?',
-      A: '아.. 병원은 갔어?',
-      B: '에고 어쩌다가ㅠㅠ 괜찮아?',
+      q: '혼자만 플레이하는 선수가 우리팀에 있다 나라면?',
+      A: '골만 잘넣으면 돼 이기는게 젤 중요해!',
+      B: '쟤는 왜 저래? 약간 화가난다.',
     },
     {
       title: '문제 8번',
       type: 'TF',
-      q: '선배가 갑자기 부르더니 이렇게 말한다. (이렇게 행동하면 아무도 너 안좋아해)',
-      A: '네 (속마음 : 어쩌라고 ㅋㅋ)',
-      B: '네..? (속마음 : 나 뭐 잘못했나ㅠㅠ 뭐지..)',
+      q: '후배가 나에게 고민을 상담하러 왔다..!',
+      A: '후배의 부족한 점과 더불어 개선할 점을 알려준다.',
+      B: '심리적으로 힘든 상태인 것을 눈치채고, 상황에 공감해준다.',
     },
     {
       title: '문제 9번',
       type: 'TF',
-      q: '오늘 면접 본 친구한테 전화가 왔다. (나 면접 망한 것 같아..)',
-      A: '왜? 준비는 잘하고 갔어? 질문 뭐였는데',
-      B: '에고 야 고생했어 ㅠㅠ 술이나 먹자',
+      q: '최근 훈련시간에 집중을 못하는 동료에게 나는?',
+      A: '요즘 무슨일이 있나? 이유가 궁금하다!',
+      B: '걱정이 되기 시작한다. 훈련이 끝나고 조용히 다가가 농담을 건넨다.',
     },
     {
       title: '문제 10번',
@@ -136,13 +135,6 @@ const ProgressTest = () => {
       router.push('/mbti/soccer-result');
     }
   }, [QuestionNumber]);
-  // useEffect(() => {
-  //   if (location.state !== null) {
-  //     setUser(location.state.name);
-  //   } else {
-  //     navigate('/');
-  //   }
-  // }, [location.state, navigate]);
 
   return (
     <section className={styles.test}>

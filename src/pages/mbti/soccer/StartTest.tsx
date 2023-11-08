@@ -23,13 +23,20 @@ const StartTest = () => {
     }
   };
   return (
-    <div>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}
+    >
       <div className={styles.startTest}>
         <div className={styles.startTest__title}>여행 스타일로 보는 나의 성격은?</div>
         <div className={styles.startTest__subtitle}>
           총 16개의 유형의 MBTI 성향을 기반으로 여행 스타일 속 나의 모습을 알아보아요
         </div>
-        <Image src={sampleImg} width={300} height={600} alt="샘플 이미지" />
+        <Image src={sampleImg} width={'200px'} height={600} alt="샘플 이미지" />
         <input
           className={styles.startTest__input}
           ref={userNameRef}
@@ -40,7 +47,7 @@ const StartTest = () => {
           <Button text="테스트하기" />
         </form>
       </div>
-      <div>
+      <div style={{ maxWidth: '500px' }}>
         <PopularTest />
       </div>
     </div>
@@ -48,27 +55,3 @@ const StartTest = () => {
 };
 
 export default StartTest;
-
-// import React from 'react';
-// import styles from './soccer.module.scss';
-// import PopularTest from '@/components/PopularTest';
-// import { useRouter } from 'next/router';
-
-// const soccer = () => {
-//   const router = useRouter();
-//   return (
-//     <div className={styles.layout}>
-//       <div className={styles.soccerMain}>
-//         축구이미지 넣어주기
-//         <div onClick={() => router.push('/')} className={styles.button}>
-//           테스트 시작하기
-//         </div>
-//       </div>
-//       <div>
-//         <PopularTest />
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default soccer;

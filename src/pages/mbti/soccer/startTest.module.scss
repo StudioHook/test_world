@@ -13,11 +13,11 @@
   display: flex;
   // justify-content: space-between;
   flex-direction: column;
-
+  font-family: 'NanumSquareNeo';
   &__title {
     text-align: center;
     margin-bottom: 1rem;
-    font-weight: 500;
+    font-weight: 400;
     font-size: 1.4rem;
     line-height: normal;
     letter-spacing: normal;

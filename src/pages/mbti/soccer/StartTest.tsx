@@ -48,9 +48,9 @@ const StartTest = () => {
           테스트하기
         </button>
       </div>
-      <div style={{ maxWidth: '500px' }}>
+      {/* <div style={{ maxWidth: '500px' }}>
         <PopularTest />
-      </div>
+      </div> */}
     </div>
   );
 };

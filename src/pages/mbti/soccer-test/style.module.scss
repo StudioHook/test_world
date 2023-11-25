@@ -2,26 +2,27 @@
 @import '../../../styles/mixins.scss';
 
 .test {
-  background-color: #f2f2f2;
   padding: 15px 0;
-
+  max-width: 450px;
+  font-family: 'NanumSquareNeo';
+  margin: auto;
   &__wrap {
+    background-color: #f2f2f2;
     position: relative;
     border: #f7706e solid 0.5rem;
     // border: 0.0625rem solid #f2f2f2;
     border-radius: 8px;
-    background-color: #fff;
-    width: 450px;
+    // background-color: #fff;
     margin: auto;
-    padding: 70px 20px;
+    padding: 70px 40px;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     align-items: center;
     &__progress {
       position: absolute;
-      top: 3rem;
-      right: 5rem;
+      top: 30px;
+      right: 30px;
     }
     &__questionNum {
       text-align: center;
@@ -41,22 +42,25 @@
       padding: 24px 18px 0 18px;
       margin-bottom: 30px;
     }
-    &__btns__1 {
-      font-size: 16px;
+    &__btns {
       width: 90%;
-      height: 75px;
-      border-radius: 20px;
-      padding: 30px 80px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background-color: #f7706e;
-      // border: 0.0625rem solid #d7d7d7e4;
-      margin: auto;
-      cursor: pointer;
-      box-shadow: -7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9,
-        7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001;
+      &__1 {
+        font-size: 16px;
+        width: 100%;
+        height: 75px;
+        border-radius: 20px;
+        padding: 30px 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #f7706e;
+        // border: 0.0625rem solid #d7d7d7e4;
+        margin: auto;
+        cursor: pointer;
+        box-shadow: -7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9,
+          7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001;
+      }
     }
   }
 }

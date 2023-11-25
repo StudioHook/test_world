@@ -2,15 +2,14 @@
 @import '../../../styles/mixins.scss';
 
 .test {
-  background-color: #f2f2f2;
   padding: 15px 0;
-
   &__wrap {
+    background-color: #f2f2f2;
     position: relative;
     border: #f7706e solid 0.5rem;
     // border: 0.0625rem solid #f2f2f2;
     border-radius: 8px;
-    background-color: #fff;
+    // background-color: #fff;
     width: 450px;
     margin: auto;
     padding: 70px 20px;

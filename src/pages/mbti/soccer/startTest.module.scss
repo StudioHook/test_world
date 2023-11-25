@@ -4,9 +4,10 @@
 .startTest {
   border: 0.0625rem solid #f2f2f2;
   border-radius: 8px;
-  padding: 100px 40px;
+  border: #f7706e solid 0.5rem;
+  padding: 50px 30px;
   background-color: #f2f2f2;
-  max-width: 500px;
+  max-width: 450px;
   height: 100%;
   margin: 10px auto;
   display: flex;
@@ -17,7 +18,7 @@
     text-align: center;
     margin-bottom: 1rem;
     font-weight: 500;
-    font-size: 2.125rem;
+    font-size: 1.4rem;
     line-height: normal;
     letter-spacing: normal;
     background-color: #f2f2f2;
@@ -25,62 +26,36 @@
   &__subtitle {
     display: block;
     color: #737377;
-    margin: 10px auto 40px;
+    font-size: 0.9rem;
+    margin: 0 auto 20px;
     text-align: center;
     background-color: #f2f2f2;
   }
-  img {
-    margin: 10px auto 30px;
-    width: 250px;
-    height: 250px;
-    background-color: #f2f2f2;
-  }
+
   &__input {
-    height: 48px;
-    width: 40%;
+    height: 20px;
+    width: 60%;
     padding: 14px 5px;
     border-radius: 5px;
     border: 1px solid #d9d9d9;
-    margin: 0 auto 25px;
+    margin: 20px auto;
     font-size: 14px;
     text-align: center;
   }
   &__button {
-    width: 60%;
-    height: 5px;
+    font-size: 18px;
+    width: 80%;
+    height: 20px;
     border-radius: 4px;
     padding: 25px;
     display: flex;
     justify-content: center;
     align-items: center;
     // background-color: $btn-background-1;
-    margin: 40px auto;
+    margin: auto;
     cursor: pointer;
+    background-color: #f7706e;
     box-shadow: -7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9, 7px 7px 20px 0px #0002,
       4px 4px 5px 0px #0001;
-  }
-}
-
-@include tablet {
-  .startTest {
-    width: 75%;
-  }
-  .startTest__input {
-    width: 50%;
-  }
-  .startTest__button {
-    width: 70%;
-  }
-}
-
-@include mobile {
-  .startTest {
-    width: 70%;
-  }
-  .startTest__input {
-    width: 70%;
-  }
-  .startTest__button {
-    width: 90%;
   }
 }

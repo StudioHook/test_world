@@ -3,6 +3,8 @@
 
 .test {
   padding: 15px 0;
+  max-width: 450px;
+  margin: auto;
   &__wrap {
     background-color: #f2f2f2;
     position: relative;
@@ -10,7 +12,6 @@
     // border: 0.0625rem solid #f2f2f2;
     border-radius: 8px;
     // background-color: #fff;
-    width: 450px;
     margin: auto;
     padding: 70px 20px;
     display: flex;
@@ -19,8 +20,8 @@
     align-items: center;
     &__progress {
       position: absolute;
-      top: 3rem;
-      right: 5rem;
+      top: 30px;
+      right: 30px;
     }
     &__questionNum {
       text-align: center;
@@ -45,7 +46,7 @@
       width: 90%;
       height: 75px;
       border-radius: 20px;
-      padding: 30px 80px;
+      padding: 30px 20px;
       display: flex;
       flex-direction: column;
       justify-content: center;

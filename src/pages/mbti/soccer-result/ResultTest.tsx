@@ -16,7 +16,6 @@ const ResultTest = () => {
   const useSNPoint = useRecoilValue(SNPoint);
   const useTFPoint = useRecoilValue(TFPoint);
   const useJPPoint = useRecoilValue(JPPoint);
-
   const resetEIpoint = useResetRecoilState(EIPoint);
   const resetSNpoint = useResetRecoilState(SNPoint);
   const resetTFpoint = useResetRecoilState(TFPoint);
@@ -39,57 +38,33 @@ const ResultTest = () => {
     resetUser();
   };
 
-  console.log(result);
-
   return (
-    <section className={styles.resultContainer}>
-      <div className={styles.resultContainer__wrap}>
-        <h3 className={styles.resultContainer__wrap__resultContainer__wrap__header}>
-          축구대표팀 mbti 테스트
-        </h3>
+    <section className={styles.Container}>
+      <div className={styles.Container__result}>
+        <div className={styles.Container__result__title}>축구 대표팀에서 {user}는?</div>
+        <div className={styles.Container__result__img}>
+          <Image src={TestImg} width={200} height={200} alt="샘플 이미지" />
+        </div>
 
-        <div className={styles.resultBox}>
-          <div className={styles.resultBox__resultBox_Text}>
-            <span className={styles.resultBox__resultBox_Big_Text}>축구대표팀</span>
-            <span className={styles.resultBox__resultBox_small_Text}>에서 당신은?</span>
-          </div>
-
-          <div>
-            <Image src={TestImg} width={180} height={155} alt="샘플 이미지" />
-          </div>
-
-          <div className={styles.resultBox__Box_in_Reulst}>
-            <div style={{ color: '#f7706e' }}>
-              <span className={styles.resultBox__result_Name}>이강인</span>
-              {result}
-            </div>
-            <div className={styles.resultBox__result_Category}>
-              재기발랄한 개인기가 넘치는 깜찍이 유형
-            </div>
-            <div className={styles.resultBox__result_Category}>
-              군중을 단결시키는 능력을 가진 ESTJ 유형은 전세계 인구의 11% 유형입니다.
-              가족이나 사회를 하나로 결집할 수 있는 능력을 가졌습니다. 옳다고 생각되는
-              일은 막힘없이 밀고 나갑니다.
-            </div>
-          </div>
+        <div className={styles.Container__result__name}>이강인 {result}</div>
+        <div className={styles.Container__result__nickname}>
+          재기발랄한 개인기가 넘치는 깜찍이 유형
+        </div>
+        <div className={styles.Container__result__details}>
+          군중을 단결시키는 능력을 가진 ESTJ 유형은 전세계 인구의 11% 유형입니다. 가족이나
+          사회를 하나로 결집할 수 있는 능력을 가졌습니다. 옳다고 생각되는 일은 막힘없이
+          밀고 나갑니다.
         </div>
       </div>
-      <div className={styles.result_share}>
-        <span className={styles.result_share__share_text}>친구에게 결과공유</span>
-        <div style={{ display: 'flex', marginTop: '10px' }}>
-          <div>
-            <Image src={kakao} width={60} height={60} alt="카톡공유" />
-          </div>
-          <div className={styles.result_share__clipEmogi}>🔗</div>
+      <div className={styles.Container__share}>
+        <span className={styles.Container__share__title}>친구에게 결과공유</span>
+        <div className={styles.Container__share__kakaoImg}>
+          <Image src={kakao} width={50} height={50} alt="카톡공유" />
         </div>
+        {/* <div className={styles.result_share__clipEmogi}>🔗</div> */}
       </div>
 
-      <button
-        type="button"
-        className={styles.resultContainer__wrap__testAgainButton}
-        onClick={onRestartTest}
-        // onClick={testAgainButton}
-      >
+      <button type="button" className={styles.Container__button} onClick={onRestartTest}>
         다시 테스트 하기
       </button>
     </section>

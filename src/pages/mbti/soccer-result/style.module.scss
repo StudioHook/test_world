@@ -1,46 +1,83 @@
 @import '../../../styles/globals.css';
 @import '../../../styles/mixins.scss';
 
-.resultContainer {
-  background-color: #f2f2f2;
+.Container {
   font-family: 'NanumSquareNeo';
-  &__wrap {
-    position: relative;
-    border: 0.0625rem solid #f2f2f2;
-    border-radius: 8px;
-    background-color: #fff;
-    width: 60%;
-    margin: auto;
-    padding: 300px 40px;
+  border-radius: 8px;
+  border: #f7706e solid 0.5rem;
+  padding: 50px 30px;
+  background-color: #f2f2f2;
+  max-width: 450px;
+  height: 100%;
+  margin: 10px auto;
+
+  &__result {
+    &__title {
+      text-align: center;
+      margin-bottom: 1.3rem;
+      font-weight: 400;
+      font-size: 1.4rem;
+      line-height: normal;
+      letter-spacing: normal;
+      background-color: #f2f2f2;
+    }
+    &__img {
+      text-align: center;
+      margin: 30px 0;
+    }
+    &__name {
+      color: #f7706e;
+      text-align: center;
+      margin-bottom: 1rem;
+      // font-weight: 400;
+      font-size: 2rem;
+      line-height: normal;
+      letter-spacing: normal;
+      background-color: #f2f2f2;
+    }
+    &__nickname {
+      text-align: center;
+      margin-bottom: 1rem;
+      // font-weight: 400;
+      font-size: 1.1rem;
+      line-height: normal;
+      letter-spacing: normal;
+      background-color: #f2f2f2;
+    }
+    &__details {
+      display: block;
+      color: #737377;
+      font-size: 1rem;
+      margin: 0 auto 20px;
+      text-align: center;
+      background-color: #f2f2f2;
+    }
+  }
+  &__share {
     display: flex;
-    justify-content: space-between;
     flex-direction: column;
+    text-align: center;
+    &__title {
+      margin: 20px 0 10px 0;
+    }
+    &__kakaoImg {
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+  }
+  &__button {
+    font-size: 18px;
+    width: 80%;
+    height: 20px;
+    border-radius: 4px;
+    padding: 25px;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    &__header {
-      font-size: 20px;
-    }
-    img {
-      margin: 50px auto 30px;
-      width: 300px;
-      height: 300px;
-    }
-    &__result {
-      font-size: 50px;
-    }
-    &__testAgainButton {
-      font-size: 20px;
-      width: 60%;
-      height: 20px;
-      border-radius: 4px;
-      padding: 30px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      // background-color: $btn-background-1;
-      margin: 40px auto;
-      cursor: pointer;
-      box-shadow: -7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9,
-        7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001;
-    }
+    margin: auto;
+    cursor: pointer;
+    background-color: #f7706e;
+    box-shadow: -7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9, 7px 7px 20px 0px #0002,
+      4px 4px 5px 0px #0001;
   }
 }

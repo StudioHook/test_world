@@ -2,7 +2,6 @@
 @import '../../../styles/mixins.scss';
 
 .startTest {
-  border: 0.0625rem solid #f2f2f2;
   border-radius: 8px;
   border: #f7706e solid 0.5rem;
   padding: 50px 30px;
@@ -11,7 +10,6 @@
   height: 100%;
   margin: 10px auto;
   display: flex;
-  // justify-content: space-between;
   flex-direction: column;
   font-family: 'NanumSquareNeo';
   &__title {

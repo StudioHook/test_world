@@ -1,6 +1,6 @@
 import styles from './style.module.scss';
 import Image from 'next/image';
-import logoImg from '../../../public/images/test-world-logo.png';
+import logoImg from '../../../public/images/soccer-mbti.png';
 
 const Footer = () => {
   return (

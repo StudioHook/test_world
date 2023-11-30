@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import styles from './Header.module.scss';
-import logoImg from '../../../public/images/test-world-logo.png';
+import logoImg from '../../../public/images/soccer-mbti.png';
 import Image from 'next/image';
 
 const Header = () => {

@@ -15,7 +15,7 @@ type TQuestionBox = [
 
 const ProgressTest = () => {
   const router = useRouter();
-  const [QuestionNumber, setQuestionNumber] = useState(0);
+  const [questionNumber, setQuestionNumber] = useState(0);
 
   const [mbtiEIPoint, setEIPoint] = useRecoilState(EIPoint);
   const [mbtiSNPoint, setSNPoint] = useRecoilState(SNPoint);
@@ -111,17 +111,17 @@ const ProgressTest = () => {
 
   const clickUserAnswr = (e: any) => {
     setQuestionNumber((prev) => prev + 1);
-    if (QuestionNumber < 12) {
-      if (e.target.value === 'O' && questionBox[QuestionNumber].type === 'EI') {
+    if (questionNumber < 12) {
+      if (e.target.value === 'O' && questionBox[questionNumber].type === 'EI') {
         setEIPoint((prev) => prev + 1);
       }
-      if (e.target.value === 'O' && questionBox[QuestionNumber].type === 'SN') {
+      if (e.target.value === 'O' && questionBox[questionNumber].type === 'SN') {
         setSNPoint((prev) => prev + 1);
       }
-      if (e.target.value === 'O' && questionBox[QuestionNumber].type === 'TF') {
+      if (e.target.value === 'O' && questionBox[questionNumber].type === 'TF') {
         setTFPoint((prev) => prev + 1);
       }
-      if (e.target.value === 'O' && questionBox[QuestionNumber].type === 'JP') {
+      if (e.target.value === 'O' && questionBox[questionNumber].type === 'JP') {
         setJPPoint((prev) => prev + 1);
       }
     } else {
@@ -131,20 +131,20 @@ const ProgressTest = () => {
     }
   };
   useEffect(() => {
-    if (QuestionNumber > 11) {
+    if (questionNumber > 11) {
       router.push('/mbti/soccer-result');
     }
-  }, [QuestionNumber]);
+  }, [questionNumber, router]);
 
   return (
     <section className={styles.test}>
-      {QuestionNumber <= 11 ? (
+      {questionNumber <= 11 ? (
         <div className={styles.test__wrap}>
-          <div className={styles.test__wrap__progress}>{QuestionNumber + 1}/12</div>
-          <div className={styles.test__wrap__questionNum}>Q {QuestionNumber + 1}</div>
+          <div className={styles.test__wrap__progress}>{questionNumber + 1}/12</div>
+          <div className={styles.test__wrap__questionNum}>Q {questionNumber + 1}</div>
           <div className={styles.test__wrap__questionBox}>
-            {QuestionNumber <= 12 ? (
-              <h3 className={styles.question}>{questionBox[QuestionNumber].q}</h3>
+            {questionNumber <= 12 ? (
+              <h3>{questionBox[questionNumber].q}</h3>
             ) : (
               <h1>Loading</h1>
             )}
@@ -156,7 +156,7 @@ const ProgressTest = () => {
               onClick={clickUserAnswr}
               value="O"
             >
-              {questionBox[QuestionNumber].A}
+              {questionBox[questionNumber].A}
             </button>
             <br />
             <button
@@ -165,7 +165,7 @@ const ProgressTest = () => {
               onClick={clickUserAnswr}
               value="X"
             >
-              {questionBox[QuestionNumber].B}
+              {questionBox[questionNumber].B}
             </button>
           </div>
         </div>

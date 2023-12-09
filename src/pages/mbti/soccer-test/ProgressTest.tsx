@@ -5,7 +5,6 @@ import { useRecoilState, useSetRecoilState } from 'recoil';
 import { EIPoint, SNPoint, TFPoint, JPPoint } from '@/states/mbtiPoint';
 import { questionBox } from './questionBox';
 import Image from 'next/image';
-import main from 'public/images/main_pic.png';
 
 const ProgressTest = () => {
   const router = useRouter();
@@ -48,15 +47,20 @@ const ProgressTest = () => {
         <div className={styles.test__wrap}>
           <div className={styles.test__wrap__progress}>{QuestionNumber + 1}/12</div>
           <div className={styles.test__wrap__questionNum}>Q {QuestionNumber + 1}</div>
-          <div className={styles.test__wrap__Image}>
-            <Image src={main} width={'500px'} height={'500px'} alt="샘플 이미지" />
-          </div>
           <div className={styles.test__wrap__questionBox}>
             {QuestionNumber <= 12 ? (
               <h3 className={styles.question}>{questionBox[QuestionNumber].q}</h3>
             ) : (
               <h1>Loading</h1>
             )}
+          </div>
+          <div className={styles.test__wrap__Image}>
+            <Image
+              src={questionBox[QuestionNumber].img}
+              width={'350px'}
+              height={'350px'}
+              alt={questionBox[QuestionNumber].title}
+            />
           </div>
           <div className={styles.test__wrap__btns}>
             <button

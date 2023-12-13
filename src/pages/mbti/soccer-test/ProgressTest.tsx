@@ -8,7 +8,7 @@ import Image from 'next/image';
 
 const ProgressTest = () => {
   const router = useRouter();
-  const [QuestionNumber, setQuestionNumber] = useState(0);
+  const [questionNumber, setQuestionNumber] = useState(0);
   const [mbtiEIPoint, setEIPoint] = useRecoilState(EIPoint);
   const [mbtiSNPoint, setSNPoint] = useRecoilState(SNPoint);
   const [mbtiTFPoint, setTFPoint] = useRecoilState(TFPoint);
@@ -45,8 +45,8 @@ const ProgressTest = () => {
     <section className={styles.test}>
       {questionNumber <= 11 ? (
         <div className={styles.test__wrap}>
-          <div className={styles.test__wrap__progress}>{QuestionNumber + 1}/12</div>
-          <div className={styles.test__wrap__questionNum}>Q {QuestionNumber + 1}</div>
+          <div className={styles.test__wrap__progress}>{questionNumber + 1}/12</div>
+          <div className={styles.test__wrap__questionNum}>Q {questionNumber + 1}</div>
           <div className={styles.test__wrap__questionBox}>
             {questionNumber <= 12 ? (
               <h3>{questionBox[questionNumber].q}</h3>
@@ -56,10 +56,10 @@ const ProgressTest = () => {
           </div>
           <div className={styles.test__wrap__Image}>
             <Image
-              src={questionBox[QuestionNumber].img}
+              src={questionBox[questionNumber].img}
               width={'350px'}
               height={'350px'}
-              alt={questionBox[QuestionNumber].title}
+              alt={questionBox[questionNumber].title}
             />
           </div>
           <div className={styles.test__wrap__btns}>

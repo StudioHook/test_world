@@ -1,7 +1,7 @@
 import styles from './style.module.scss';
 import React, { useEffect, useState } from 'react';
-// import { useLocation, useNavigate } from 'react-router-dom';
 import Image from 'next/image';
+import { resultBox } from './resultBox';
 import TestImg from 'public/images/kfa_white.png';
 import kakao from 'public/images/KakaoShare.png';
 import LinkShare from 'public/images/LinkShare.png';
@@ -11,6 +11,13 @@ import { useRouter } from 'next/router';
 import { useRecoilValue, useResetRecoilState } from 'recoil';
 import { userName } from '@/states/userState';
 import { EIPoint, JPPoint, SNPoint, TFPoint } from '@/states/mbtiPoint';
+
+type TResultBox = {
+  id: string;
+  title: string;
+  name: string;
+  contents: string;
+};
 
 const ResultTest = () => {
   const router = useRouter();
@@ -25,12 +32,9 @@ const ResultTest = () => {
   const resetJPpoint = useResetRecoilState(JPPoint);
   const resetUser = useResetRecoilState(userName);
   const [modalToggleOn, setModalToggleOn] = useState(false);
-  const result = [
-    useEIPoint >= 2 ? 'E' : 'I',
-    useSNPoint >= 2 ? 'S' : 'N',
-    useTFPoint >= 2 ? 'T' : 'F',
-    useJPPoint >= 2 ? 'J' : 'P',
-  ];
+  const [result, setResult] = useState('');
+  const [resultContents, setResultContents] = useState<TResultBox>();
+
 
   //링크 공유
   const clip = () => {
@@ -57,6 +61,20 @@ const ResultTest = () => {
     resetUser();
   };
 
+  useEffect(() => {
+    const tmpResult = [
+      useEIPoint >= 2 ? 'E' : 'I',
+      useSNPoint >= 2 ? 'S' : 'N',
+      useTFPoint >= 2 ? 'T' : 'F',
+      useJPPoint >= 2 ? 'J' : 'P',
+    ];
+
+    const tmpResultBox = resultBox.find((item) => item.id === tmpResult.join(''));
+
+    setResult(tmpResult.join(''));
+    setResultContents(tmpResultBox);
+  }, [useEIPoint, useSNPoint, useTFPoint, useJPPoint]);
+
   return (
     <section className={styles.Container}>
       <div className={styles.Container__result}>
@@ -65,14 +83,12 @@ const ResultTest = () => {
           <Image src={TestImg} width={200} height={200} alt="샘플 이미지" />
         </div>
 
-        <div className={styles.Container__result__name}>이강인 {result}</div>
-        <div className={styles.Container__result__nickname}>
-          재기발랄한 개인기가 넘치는 깜찍이 유형
+        <div className={styles.Container__result__name}>
+          {resultContents?.name} {resultContents?.id}
         </div>
+        <div className={styles.Container__result__nickname}>{resultContents?.title}</div>
         <div className={styles.Container__result__details}>
-          군중을 단결시키는 능력을 가진 ESTJ 유형은 전세계 인구의 11% 유형입니다. 가족이나
-          사회를 하나로 결집할 수 있는 능력을 가졌습니다. 옳다고 생각되는 일은 막힘없이
-          밀고 나갑니다.
+          {resultContents?.contents}
         </div>
       </div>
       <div className={styles.Container__share}>

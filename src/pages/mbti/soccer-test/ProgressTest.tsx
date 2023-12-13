@@ -14,25 +14,24 @@ const ProgressTest = () => {
   const [mbtiTFPoint, setTFPoint] = useRecoilState(TFPoint);
   const [mbtiJPPoint, setJPPoint] = useRecoilState(JPPoint);
 
-  const clickUserAnswr = (e: any) => {
+  const clickUserAnswr = (e: React.MouseEvent<HTMLButtonElement>) => {
     setQuestionNumber((prev) => prev + 1);
+
+    const target = e.target as HTMLButtonElement;
+
     if (questionNumber < 12) {
-      if (e.target.value === 'O' && questionBox[questionNumber].type === 'EI') {
+      if (target.value === 'O' && questionBox[questionNumber].type === 'EI') {
         setEIPoint((prev) => prev + 1);
       }
-      if (e.target.value === 'O' && questionBox[questionNumber].type === 'SN') {
+      if (target.value === 'O' && questionBox[questionNumber].type === 'SN') {
         setSNPoint((prev) => prev + 1);
       }
-      if (e.target.value === 'O' && questionBox[questionNumber].type === 'TF') {
+      if (target.value === 'O' && questionBox[questionNumber].type === 'TF') {
         setTFPoint((prev) => prev + 1);
       }
-      if (e.target.value === 'O' && questionBox[questionNumber].type === 'JP') {
+      if (target.value === 'O' && questionBox[questionNumber].type === 'JP') {
         setJPPoint((prev) => prev + 1);
       }
-    } else {
-      // navigate('/mbtiTestResult', {
-      //   state: { user, EIPoint, SNPoint, TFPoint, JPPoint },
-      // });
     }
   };
   useEffect(() => {

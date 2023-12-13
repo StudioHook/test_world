@@ -52,7 +52,7 @@ const StartTest = () => {
             <div>총 16개의 유형의 MBTI 성향을 기반으로</div>
             <div>나의 성격에 따른 축구 포지션을 알아보아요!</div>
           </div>
-          <Image src={main} width={'200px'} height={'400px'} alt="샘플 이미지" />
+          <Image src={main} width={'350px'} height={'350px'} alt="샘플 이미지" />
           <input
             className={styles.startTest__input}
             ref={userNameRef}

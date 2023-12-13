@@ -3,7 +3,10 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { resultBox } from './resultBox';
 import TestImg from 'public/images/kfa_white.png';
-import kakao from 'public/images/kakaotalk.png';
+import kakao from 'public/images/KakaoShare.png';
+import LinkShare from 'public/images/LinkShare.png';
+import FacebookShare from 'public/images/FacebookShare.png';
+import TwitterShare from 'public/images/TwitterShare.png';
 import { useRouter } from 'next/router';
 import { useRecoilValue, useResetRecoilState } from 'recoil';
 import { userName } from '@/states/userState';
@@ -28,10 +31,27 @@ const ResultTest = () => {
   const resetTFpoint = useResetRecoilState(TFPoint);
   const resetJPpoint = useResetRecoilState(JPPoint);
   const resetUser = useResetRecoilState(userName);
-
+  const [modalToggleOn, setModalToggleOn] = useState(false);
   const [result, setResult] = useState('');
   const [resultContents, setResultContents] = useState<TResultBox>();
 
+
+  //링크 공유
+  const clip = () => {
+    navigator.clipboard.writeText(window.location.href);
+    setModalToggleOn(true);
+  };
+
+  const url = encodeURI(window.location.href);
+  // Facebook
+  const shareFacebook = () => {
+    window.open('http://www.facebook.com/sharer/sharer.php?u=' + url);
+  };
+  // Twitter
+  const shareTwitter = () => {
+    const text = '나의 축구 MBTI는?';
+    window.open('https://twitter.com/intent/tweet?text=' + text + '&url=' + url);
+  };
   const onRestartTest = () => {
     router.push('/mbti/soccer');
     resetEIpoint();
@@ -73,12 +93,50 @@ const ResultTest = () => {
       </div>
       <div className={styles.Container__share}>
         <span className={styles.Container__share__title}>친구에게 결과공유</span>
-        <div className={styles.Container__share__kakaoImg}>
-          <Image src={kakao} width={50} height={50} alt="카톡공유" />
+        <div className={styles.Container__share__resultShare}>
+          <Image
+            src={kakao}
+            style={{ cursor: 'pointer' }}
+            width={42}
+            height={42}
+            alt="카톡공유"
+          />
+          <Image
+            src={FacebookShare}
+            onClick={shareFacebook}
+            style={{ cursor: 'pointer' }}
+            width={40}
+            height={40}
+            alt="페이스북공유"
+          />
+          <Image
+            src={TwitterShare}
+            onClick={shareTwitter}
+            style={{ cursor: 'pointer' }}
+            width={40}
+            height={40}
+            alt="트위터공유"
+          />
+          <Image
+            src={LinkShare}
+            onClick={clip}
+            style={{ cursor: 'pointer' }}
+            width={40}
+            height={40}
+            alt="링크 공유"
+          />
         </div>
-        {/* <div className={styles.result_share__clipEmogi}>🔗</div> */}
       </div>
-
+      {modalToggleOn && (
+        <div className={styles.modalWrap}>
+          <div className={styles.modalWrapBody}>
+            <span className={styles.closeBtn} onClick={() => setModalToggleOn(false)}>
+              &times;
+            </span>
+            <p className={styles.modalText}>링크가 복사되었습니다!</p>
+          </div>
+        </div>
+      )}
       <button type="button" className={styles.Container__button} onClick={onRestartTest}>
         다시 테스트 하기
       </button>

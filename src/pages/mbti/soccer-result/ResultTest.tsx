@@ -1,8 +1,7 @@
 import styles from './style.module.scss';
 import React, { useEffect, useState } from 'react';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import { resultBox } from './resultBox';
-import TestImg from 'public/images/kfa_white.png';
 import kakao from 'public/images/KakaoShare.png';
 import LinkShare from 'public/images/LinkShare.png';
 import FacebookShare from 'public/images/FacebookShare.png';
@@ -12,11 +11,21 @@ import { useRecoilValue, useResetRecoilState } from 'recoil';
 import { userName } from '@/states/userState';
 import { EIPoint, JPPoint, SNPoint, TFPoint } from '@/states/mbtiPoint';
 
+type NextImage = {
+  src: string;
+  height: number;
+  width: number;
+  blurDataURL?: string;
+  blurWidth?: number;
+  blurHeight?: number;
+};
+
 type TResultBox = {
   id: string;
   title: string;
   name: string;
   contents: string;
+  image: NextImage;
 };
 
 const ResultTest = () => {
@@ -32,7 +41,6 @@ const ResultTest = () => {
   const resetJPpoint = useResetRecoilState(JPPoint);
   const resetUser = useResetRecoilState(userName);
   const [modalToggleOn, setModalToggleOn] = useState(false);
-  const [result, setResult] = useState('');
   const [resultContents, setResultContents] = useState<TResultBox>();
 
   //kakao 공유
@@ -62,6 +70,7 @@ const ResultTest = () => {
     const text = '나의 축구 MBTI는?';
     window.open('https://twitter.com/intent/tweet?text=' + text + '&url=' + url);
   };
+
   const onRestartTest = () => {
     router.push('/mbti/soccer');
     resetEIpoint();
@@ -80,8 +89,8 @@ const ResultTest = () => {
     ];
 
     const tmpResultBox = resultBox.find((item) => item.id === tmpResult.join(''));
+    console.log(tmpResultBox);
 
-    setResult(tmpResult.join(''));
     setResultContents(tmpResultBox);
   }, [useEIPoint, useSNPoint, useTFPoint, useJPPoint]);
 
@@ -90,7 +99,14 @@ const ResultTest = () => {
       <div className={styles.Container__result}>
         <div className={styles.Container__result__title}>축구 대표팀에서 {user}는?</div>
         <div className={styles.Container__result__img}>
-          <Image src={TestImg} width={200} height={200} alt="샘플 이미지" />
+          {resultContents && resultContents.image && (
+            <Image
+              src={resultContents.image.src}
+              width={240}
+              height={220}
+              alt="결과 이미지"
+            />
+          )}
         </div>
 
         <div className={styles.Container__result__name}>

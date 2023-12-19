@@ -35,6 +35,16 @@ const ResultTest = () => {
   const [result, setResult] = useState('');
   const [resultContents, setResultContents] = useState<TResultBox>();
 
+  //kakao 공유
+  const shareKakao = async () => {
+    await window.Kakao.Share.sendCustom({
+      templateId: 102067,
+      // templateArgs: {
+      //   totalBook,
+      //   totalAmount,
+      // },
+    });
+  };
 
   //링크 공유
   const clip = () => {
@@ -100,6 +110,7 @@ const ResultTest = () => {
             width={42}
             height={42}
             alt="카톡공유"
+            onClick={shareKakao}
           />
           <Image
             src={FacebookShare}

@@ -61,6 +61,11 @@
         box-shadow: -7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9,
           7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001;
       }
+      &__1:hover {
+        box-shadow: 0 0.4em 0.4em -0.4em black;
+        background: linear-gradient(0deg, #f7a09e 0%, #f7a09e 100%);
+      }
     }
+    
   }
 }

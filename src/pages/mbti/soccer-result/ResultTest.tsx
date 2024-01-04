@@ -1,7 +1,7 @@
 import styles from './style.module.scss';
 import React, { useEffect, useState } from 'react';
 import Image, { StaticImageData } from 'next/image';
-import { resultBox } from './resultBox';
+import { resultBox } from '../../../dummy/resultBox';
 import kakao from 'public/images/KakaoShare.png';
 import LinkShare from 'public/images/LinkShare.png';
 import FacebookShare from 'public/images/FacebookShare.png';

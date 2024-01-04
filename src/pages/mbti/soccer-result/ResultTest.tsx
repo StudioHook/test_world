@@ -45,30 +45,35 @@ const ResultTest = () => {
 
   //kakao 공유
   const shareKakao = async () => {
-    await window.Kakao.Share.sendCustom({
-      templateId: 102067,
-      // templateArgs: {
-      //   totalBook,
-      //   totalAmount,
-      // },
-    });
+    if (typeof window !== undefined) {
+      await window.Kakao.Share.sendCustom({
+        templateId: 102067,
+      });
+    }
   };
 
   //링크 공유
   const clip = () => {
-    navigator.clipboard.writeText(window.location.href);
-    setModalToggleOn(true);
+    if (typeof window !== undefined) {
+      navigator.clipboard.writeText(window.location.href);
+      setModalToggleOn(true);
+    }
   };
 
-  const url = encodeURI(window.location.href);
+  const [url, setUrl] = useState<string>('');
+
   // Facebook
   const shareFacebook = () => {
-    window.open('http://www.facebook.com/sharer/sharer.php?u=' + url);
+    if (typeof window !== undefined) {
+      window.open('http://www.facebook.com/sharer/sharer.php?u=' + url);
+    }
   };
   // Twitter
   const shareTwitter = () => {
     const text = '나의 축구 MBTI는?';
-    window.open('https://twitter.com/intent/tweet?text=' + text + '&url=' + url);
+    if (typeof window !== undefined) {
+      window.open('https://twitter.com/intent/tweet?text=' + text + '&url=' + url);
+    }
   };
 
   const onRestartTest = () => {
@@ -89,10 +94,15 @@ const ResultTest = () => {
     ];
 
     const tmpResultBox = resultBox.find((item) => item.id === tmpResult.join(''));
-    console.log(tmpResultBox);
 
     setResultContents(tmpResultBox);
   }, [useEIPoint, useSNPoint, useTFPoint, useJPPoint]);
+
+  useEffect(() => {
+    if (typeof window !== undefined) {
+      setUrl(encodeURI(window.location.href));
+    }
+  }, []);
 
   return (
     <section className={styles.Container}>

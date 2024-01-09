@@ -3,7 +3,7 @@ import styles from './style.module.scss';
 import { useRouter } from 'next/router';
 import { useRecoilState, useSetRecoilState } from 'recoil';
 import { EIPoint, SNPoint, TFPoint, JPPoint } from '@/states/mbtiPoint';
-import { questionBox } from './questionBox';
+import { questionBox } from '../../../dummy/questionBox';
 import Image from 'next/image';
 
 const ProgressTest = () => {

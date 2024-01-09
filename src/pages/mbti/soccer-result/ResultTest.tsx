@@ -47,10 +47,6 @@ const ResultTest = () => {
   const shareKakao = async () => {
     await window.Kakao.Share.sendCustom({
       templateId: 102067,
-      // templateArgs: {
-      //   totalBook,
-      //   totalAmount,
-      // },
     });
   };
 
@@ -89,7 +85,6 @@ const ResultTest = () => {
     ];
 
     const tmpResultBox = resultBox.find((item) => item.id === tmpResult.join(''));
-    console.log(tmpResultBox);
 
     setResultContents(tmpResultBox);
   }, [useEIPoint, useSNPoint, useTFPoint, useJPPoint]);

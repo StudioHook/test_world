@@ -9,10 +9,10 @@ import Image from 'next/image';
 const ProgressTest = () => {
   const router = useRouter();
   const [questionNumber, setQuestionNumber] = useState(0);
-  const [mbtiEIPoint, setEIPoint] = useRecoilState(EIPoint);
-  const [mbtiSNPoint, setSNPoint] = useRecoilState(SNPoint);
-  const [mbtiTFPoint, setTFPoint] = useRecoilState(TFPoint);
-  const [mbtiJPPoint, setJPPoint] = useRecoilState(JPPoint);
+  const setEIPoint = useSetRecoilState(EIPoint);
+  const setSNPoint = useSetRecoilState(SNPoint);
+  const setTFPoint = useSetRecoilState(TFPoint);
+  const setJPPoint = useSetRecoilState(JPPoint);
 
   const clickUserAnswr = (e: React.MouseEvent<HTMLButtonElement>) => {
     setQuestionNumber((prev) => prev + 1);
@@ -34,6 +34,7 @@ const ProgressTest = () => {
       }
     }
   };
+
   useEffect(() => {
     if (questionNumber > 11) {
       router.push('/mbti/soccer-result');

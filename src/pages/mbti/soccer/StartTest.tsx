@@ -1,10 +1,9 @@
 import React, { ChangeEvent, useRef, useState } from 'react';
 import styles from './startTest.module.scss';
-// import Button from '@/components/styled-components/Button';
 import PopularTest from '@/components/PopularTest';
 import Image from 'next/image';
 import main from 'public/images/main_pic.png';
-import router, { useRouter } from 'next/router';
+import { useRouter } from 'next/router';
 import { useSetRecoilState } from 'recoil';
 import { userName } from '@/states/userState';
 

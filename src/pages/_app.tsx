@@ -2,7 +2,7 @@ import '@/styles/globals.css';
 import Header from '@/common/Header';
 import Footer from '@/common/Footer';
 import type { AppProps } from 'next/app';
-import styled from 'styled-components';
+import { Analytics } from '@vercel/analytics/react';
 import { RecoilRoot } from 'recoil';
 import Script from 'next/script';
 declare global {
@@ -23,6 +23,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <RecoilRoot>
       <Header />
       <Component {...pageProps} />
+      <Analytics />
       <Script src="https://developers.kakao.com/sdk/js/kakao.js" onLoad={kakaoInit} />
       <Footer />
     </RecoilRoot>

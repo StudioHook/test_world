@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import styles from './style.module.scss';
 import { useRouter } from 'next/router';
-import { useRecoilState, useSetRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import { EIPoint, SNPoint, TFPoint, JPPoint } from '@/states/mbtiPoint';
 import { questionBox } from '../../../dummy/questionBox';
 import Image from 'next/image';
+import { userName } from '@/states/userState';
 
 const ProgressTest = () => {
   const router = useRouter();
+  const user = useRecoilValue(userName);
   const [questionNumber, setQuestionNumber] = useState(0);
   const setEIPoint = useSetRecoilState(EIPoint);
   const setSNPoint = useSetRecoilState(SNPoint);
@@ -40,6 +42,12 @@ const ProgressTest = () => {
       router.push('/mbti/soccer-result');
     }
   }, [questionNumber, router]);
+
+  useEffect(() => {
+    if (!user) {
+      router.push('/mbti/soccer');
+    }
+  }, []);
 
   return (
     <section className={styles.test}>

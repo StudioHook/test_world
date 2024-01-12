@@ -5,6 +5,7 @@ import type { AppProps } from 'next/app';
 import { Analytics } from '@vercel/analytics/react';
 import { RecoilRoot } from 'recoil';
 import Script from 'next/script';
+import Head from 'next/head';
 declare global {
   // Kakao 전역에서 접근 가능하도록
   interface Window {
@@ -20,12 +21,18 @@ export default function App({ Component, pageProps }: AppProps) {
   };
 
   return (
-    <RecoilRoot>
-      <Header />
-      <Component {...pageProps} />
-      <Analytics />
-      <Script src="https://developers.kakao.com/sdk/js/kakao.js" onLoad={kakaoInit} />
-      <Footer />
-    </RecoilRoot>
+    <>
+      <RecoilRoot>
+        <Head>
+          <title>TestWorld</title>
+          <link rel="icon" href="/favicon.icon.ico" />
+        </Head>
+        <Header />
+        <Component {...pageProps} />
+        <Analytics />
+        <Script src="https://developers.kakao.com/sdk/js/kakao.js" onLoad={kakaoInit} />
+        <Footer />
+      </RecoilRoot>
+    </>
   );
 }

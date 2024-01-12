@@ -24,6 +24,8 @@ export default function App({ Component, pageProps }: AppProps) {
       <Header />
       <Component {...pageProps} />
       <Analytics />
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8158596099728583"
+     crossOrigin="anonymous"></script>
       <Script src="https://developers.kakao.com/sdk/js/kakao.js" onLoad={kakaoInit} />
       <Footer />
     </RecoilRoot>

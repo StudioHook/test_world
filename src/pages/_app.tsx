@@ -25,6 +25,10 @@ export default function App({ Component, pageProps }: AppProps) {
       <RecoilRoot>
         <Head>
           <title>TestWorld</title>
+          <meta property="og:title" content="Test_World" />
+          <meta property="og:description" content="축구 선수로 알아보는 나의 mbti는?" />
+          <meta property="og:url" content="https://www.thetestworld.com/" />
+          <meta property="og:image" content="/public/images/main_pic.png" />
           <link rel="icon" href="/favicon.icon.ico" />
         </Head>
         <Header />

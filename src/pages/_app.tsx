@@ -25,9 +25,9 @@ export default function App({ Component, pageProps }: AppProps) {
       <RecoilRoot>
         <Head>
           <title>TestWorld</title>
+          <meta property="og:url" content="https://www.thetestworld.com/" />
           <meta property="og:title" content="Test_World" />
           <meta property="og:description" content="축구 선수로 알아보는 나의 mbti는?" />
-          <meta property="og:url" content="https://www.thetestworld.com/" />
           <meta
             property="og:image"
             content="https://github.com/StudioHook/test_world/blob/main/public/images/main_pic.png"

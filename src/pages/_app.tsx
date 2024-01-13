@@ -30,7 +30,7 @@ export default function App({ Component, pageProps }: AppProps) {
           <meta property="og:url" content="https://www.thetestworld.com/" />
           <meta
             property="og:image"
-            content="https://www.thetestworld.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fmain_pic.de8061a9.png&w=750&q=75"
+            content="https://github.com/StudioHook/test_world/blob/main/public/images/main_pic.png"
           />
           <link rel="icon" href="/favicon.icon.ico" />
         </Head>

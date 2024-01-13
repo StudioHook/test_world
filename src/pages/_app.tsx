@@ -28,7 +28,10 @@ export default function App({ Component, pageProps }: AppProps) {
           <meta property="og:title" content="Test_World" />
           <meta property="og:description" content="축구 선수로 알아보는 나의 mbti는?" />
           <meta property="og:url" content="https://www.thetestworld.com/" />
-          <meta property="og:image" content="/public/images/main_pic.png" />
+          <meta
+            property="og:image"
+            content="https://www.thetestworld.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fmain_pic.de8061a9.png&w=750&q=75"
+          />
           <link rel="icon" href="/favicon.icon.ico" />
         </Head>
         <Header />

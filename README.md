@@ -1,4 +1,4 @@
-# TestWorld - Soccer MBTI Test
+# TestWorld - Soccer MBTI Test
 
 <p align="center">
 <img width="878" alt="mbtitest1" src="https://github.com/StudioHook/test_world/assets/124070996/eccf6891-a2a5-4d25-bd2a-721c73d4aaad">
@@ -7,12 +7,14 @@
 
 
 # ⚽️ 2023 AFC 카타르 아시안컵에 맞춰, Soccer MBTI 서비스를 런칭하였습니다. 
-총 16개의 유형의 MBTI 성향을 기반으로 본인의 성격에 따른 축구 포지션을 알아보세요!
+총 16개의 유형의 MBTI 성향을 기반으로 본인의 성격에 따른 축구 포지션을 알아보세요!<br/>
 MBTI 결과 페이지에서 나의 성격과 가장 닮은 축구 선수를 만나보실 수 있습니다. 
 
 ## 목표 
 1. 1주일 간, 만 명의 실사용자 유치 
 2. Google AdSense - 홈페이지 내 광고 세팅으로 수익화
+<br/>
+<br/>
 
 ## Description
 💬 React.js, styled-components, TypeScript, Recoil를 활용하여 MBTI 테스트를 구현하였습니다. 
@@ -24,6 +26,8 @@ MBTI 결과 페이지에서 나의 성격과 가장 닮은 축구 선수를 만�
 |---|---|
 |김다정|[다정 github](https://github.com/danakim530)|
 |심성보|[성보 github](https://github.com/Shim-sim)|
+<br/>
+<br/>
 
 |번호|페이지명|대표 기능|
 |---|---|---|
@@ -61,6 +65,7 @@ MBTI 결과 페이지에서 나의 성격과 가장 닮은 축구 선수를 만�
 **진행 과정**
 - 프론트 2명으로 구성된 팀 프로젝트
 - 매주 주 2회 정기모임을 가지며 서비스를 제작하였습니다.
+<br/>
 
 **주요 기능** 
 - Google AdSense : 홈페이지 내 광고 세팅으로 수익화

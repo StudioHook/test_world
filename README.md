@@ -18,10 +18,10 @@ MBTI 결과 페이지에서 나의 성격과 가장 닮은 축구 선수를 만�
 2. Google AdSense - 홈페이지 내 광고 세팅으로 수익화
 <br/>
 <br/>
-<br/>
 
 ## Description
 💬 React.js, styled-components, TypeScript, Recoil를 활용하여 MBTI 테스트를 구현하였습니다. 
+<br/>
 <br/>
 <br/>
 

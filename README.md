@@ -1,40 +1,80 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# TutorLink - front
 
-## Getting Started
+<p align="center">
+<img width="878" alt="mbtitest1" src="https://github.com/StudioHook/test_world/assets/124070996/eccf6891-a2a5-4d25-bd2a-721c73d4aaad">
+  </p>
+<br/>
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+# ⚽️ 2023 AFC 카타르 아시안컵에 맞춰, Soccer MBTI 서비스를 런칭하였습니다. 
+총 16개의 유형의 MBTI 성향을 기반으로 본인의 성격에 따른 축구 포지션을 알아보세요!
+MBTI 결과 페이지에서 나의 성격과 가장 닮은 축구 선수를 만나보실 수 있습니다. 
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 목표 
+1. 1주일 간, 만 명의 실사용자 유치 
+2. Google AdSense - 홈페이지 내 광고 세팅으로 수익화
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Description
+💬 React.js, styled-components, TypeScript, Recoil를 활용하여 MBTI 테스트를 구현하였습니다. 
+<br/>
+<br/>
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Contributors 
+|이름|github|
+|---|---|
+|김다정|[다정 github](https://github.com/danakim530)|
+|심성보|[성보 github](https://github.com/Shim-sim)|
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+|번호|페이지명|대표 기능|
+|---|---|---|
+|1|MBTI 테스트 시작 페이지|닉네임 입력, 파비콘, 썸네일 기능|
+|2|MBTI 테스트 페이지|12개의 질문을 통해 MBTI 테스트 진행|
+|3|MBTI 테스트 결과 페이지|16개의 서로 다른 MBTI 결과 제공, 소셜미디어 공유 기능(카카오, 페이스북, X(트위터).. 등)|
+<br/>
+<br/>
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Features
 
-## Learn More
+### 1. MBTI 테스트 시작 페이지
+<p align="center">
+ <img width="878" alt="mbtitest1" src="https://github.com/StudioHook/test_world/assets/124070996/4c45cd54-0d90-440d-a5e1-6f6b9b5fdbe4">
+  </p>
+<br/>
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 2. MBTI 테스트 페이지
+<p align="center">
+<img width="743" alt="mbtitest2" src="https://github.com/StudioHook/test_world/assets/124070996/fdb0a778-f82a-4ab9-8b62-82a42f149356">
+</p>
+<br/>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+### 3. MBTI 테스트 결과 페이지
+<p align="center">
+ <img width="848" alt="mbtitest3" src="https://github.com/StudioHook/test_world/assets/124070996/00f854f6-a950-47db-aa85-156fee4e5782">
+</p>
+<br/>
+<br/>
+<hr/>
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+**진행 과정**
+- 프론트 2명으로 구성된 팀 프로젝트
+- 매주 주 2회 정기모임을 가지며 서비스를 제작하였습니다.
+
+**주요 기능** 
+- Google AdSense : 홈페이지 내 광고 세팅으로 수익화
+- Vercel 서비스 배포
+- Vercel 웹 분석 지표를 통해, 실 사용자 히스토리 트래킹
+- 결과 공유 기능 : 카카오, 페이스북, X(트위터), 링크 공유
+- 12개의 MBTI 질문에 따른 16개의 서로 다른 결과 노출
+- 디자인
+  - Styled-components를 이용한 반응형 웹 디자인 구현
+- 초기 세팅
+  - 타입스크립트, eslint를 통한 버그 관리
+  - Prettier
+  - Recoil 전역관리 
+<br/>
+<br/>
+
+

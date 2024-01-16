@@ -1,6 +1,6 @@
 import styles from './style.module.scss';
 import React, { useEffect, useState } from 'react';
-import Image, { StaticImageData } from 'next/image';
+import Image from 'next/image';
 import { resultBox } from '../../../dummy/resultBox';
 import kakao from 'public/images/KakaoShare.png';
 import LinkShare from 'public/images/LinkShare.png';
@@ -40,8 +40,10 @@ const ResultTest = () => {
   const resetTFpoint = useResetRecoilState(TFPoint);
   const resetJPpoint = useResetRecoilState(JPPoint);
   const resetUser = useResetRecoilState(userName);
+
   const [modalToggleOn, setModalToggleOn] = useState(false);
   const [resultContents, setResultContents] = useState<TResultBox>();
+  const [url, setUrl] = useState<string>('');
 
   //kakao 공유
   const shareKakao = async () => {
@@ -59,8 +61,6 @@ const ResultTest = () => {
       setModalToggleOn(true);
     }
   };
-
-  const [url, setUrl] = useState<string>('');
 
   // Facebook
   const shareFacebook = () => {

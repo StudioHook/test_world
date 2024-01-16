@@ -14,13 +14,25 @@ const StartTest = () => {
 
   const [modalToggleOn, setModalToggleOn] = useState(false);
 
+  // 버튼 클릭
   const onClickStartTest = () => {
     if (userNameRef?.current?.value) {
       setUserName(userNameRef.current.value);
-      console.log(userNameRef.current.value);
       router.push('/mbti/soccer-test');
     } else {
       setModalToggleOn(true);
+    }
+  };
+
+  // 엔터로 검색
+  const onKeyPressToSearchCustomer = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      if (userNameRef?.current?.value) {
+        setUserName(userNameRef.current.value);
+        router.push('/mbti/soccer-test');
+      } else {
+        setModalToggleOn(true);
+      }
     }
   };
 
@@ -56,6 +68,7 @@ const StartTest = () => {
             className={styles.startTest__input}
             ref={userNameRef}
             placeholder="닉네임을 입력해주세요"
+            onKeyDown={onKeyPressToSearchCustomer}
             required
           />
           <button className={styles.startTest__button} onClick={onClickStartTest}>

@@ -5,7 +5,7 @@ import type { AppProps } from 'next/app';
 import { Analytics } from '@vercel/analytics/react';
 import { RecoilRoot } from 'recoil';
 import Script from 'next/script';
-import Head from 'next/head';
+
 declare global {
   // Kakao 전역에서 접근 가능하도록
   interface Window {
@@ -23,18 +23,6 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <RecoilRoot>
-        <Head>
-          <title>TestWorld</title>
-          <meta property="og:url" content="https://www.thetestworld.com/" />
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <meta property="og:title" content="Test_World" />
-          <meta property="og:description" content="축구 선수로 알아보는 나의 mbti는?" />
-          <meta
-            property="og:image"
-            content="https://www.thetestworld.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fmain_pic.de8061a9.png&w=750&q=75"
-          />
-          <link rel="icon" href="/favicon.icon.ico" />
-        </Head>
         <Header />
         <Component {...pageProps} />
         <Analytics />

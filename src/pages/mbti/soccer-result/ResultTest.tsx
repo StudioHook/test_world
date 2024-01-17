@@ -7,7 +7,7 @@ import LinkShare from 'public/images/LinkShare.png';
 import FacebookShare from 'public/images/FacebookShare.png';
 import TwitterShare from 'public/images/TwitterShare.png';
 import { useRouter } from 'next/router';
-import { useRecoilValue, useResetRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue, useResetRecoilState } from 'recoil';
 import { userName } from '@/states/userState';
 import { EIPoint, JPPoint, SNPoint, TFPoint } from '@/states/mbtiPoint';
 
@@ -31,10 +31,11 @@ type TResultBox = {
 const ResultTest = () => {
   const router = useRouter();
   const user = useRecoilValue(userName);
-  const useEIPoint = useRecoilValue(EIPoint);
-  const useSNPoint = useRecoilValue(SNPoint);
-  const useTFPoint = useRecoilValue(TFPoint);
-  const useJPPoint = useRecoilValue(JPPoint);
+  const [useEIPoint, setEIPoint] = useRecoilState(EIPoint);
+  const [useSNPoint, setSNPoint] = useRecoilState(SNPoint);
+  const [useTFPoint, setTFPoint] = useRecoilState(TFPoint);
+  const [useJPPoint, setJPPoint] = useRecoilState(JPPoint);
+
   const resetEIpoint = useResetRecoilState(EIPoint);
   const resetSNpoint = useResetRecoilState(SNPoint);
   const resetTFpoint = useResetRecoilState(TFPoint);
@@ -101,6 +102,17 @@ const ResultTest = () => {
   useEffect(() => {
     if (typeof window !== undefined) {
       setUrl(encodeURI(window.location.href));
+    }
+
+    const { ei, sn, tf, jp } = router.query;
+
+    if (router.query.hasOwnProperty('ei')) {
+      if (ei || sn || tf || jp) {
+        setEIPoint(Number(ei));
+        setSNPoint(Number(sn));
+        setTFPoint(Number(tf));
+        setJPPoint(Number(jp));
+      }
     }
   }, []);
 

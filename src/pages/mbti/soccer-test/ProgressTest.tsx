@@ -11,10 +11,10 @@ const ProgressTest = () => {
   const router = useRouter();
   const user = useRecoilValue(userName);
   const [questionNumber, setQuestionNumber] = useState(0);
-  const setEIPoint = useSetRecoilState(EIPoint);
-  const setSNPoint = useSetRecoilState(SNPoint);
-  const setTFPoint = useSetRecoilState(TFPoint);
-  const setJPPoint = useSetRecoilState(JPPoint);
+  const [mbtiEIPoint, setEIPoint] = useRecoilState(EIPoint);
+  const [mbtiSNPoint, setSNPoint] = useRecoilState(SNPoint);
+  const [mbtiTFPoint, setTFPoint] = useRecoilState(TFPoint);
+  const [mbtiJPPoint, setJPPoint] = useRecoilState(JPPoint);
 
   const clickUserAnswr = (e: React.MouseEvent<HTMLButtonElement>) => {
     setQuestionNumber((prev) => prev + 1);
@@ -39,9 +39,19 @@ const ProgressTest = () => {
 
   useEffect(() => {
     if (questionNumber > 11) {
-      router.push('/mbti/soccer-result');
+      const queryParams = {
+        ei: mbtiEIPoint,
+        sn: mbtiSNPoint,
+        tf: mbtiTFPoint,
+        jp: mbtiJPPoint,
+      };
+
+      router.push({
+        pathname: '/mbti/soccer-result',
+        query: queryParams,
+      });
     }
-  }, [questionNumber, router]);
+  }, [questionNumber, router, mbtiEIPoint, mbtiSNPoint, mbtiTFPoint, mbtiJPPoint]);
 
   useEffect(() => {
     if (!user) {

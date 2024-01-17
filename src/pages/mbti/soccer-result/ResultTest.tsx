@@ -114,7 +114,7 @@ const ResultTest = () => {
         setJPPoint(Number(jp));
       }
     }
-  }, []);
+  }, [router]);
 
   return (
     <section className={styles.Container}>
